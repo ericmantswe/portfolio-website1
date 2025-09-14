@@ -10,7 +10,7 @@ export const PROFILE_DATA = {
 };
 
 export const SOCIAL_LINKS: { name: string; url: string; icon: ComponentType<any> }[] = [
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/eric-mantswe-859b39364/", icon: Linkedin },
+  { name: "LinkedIn", url: "#", icon: Linkedin },
   { name: "GitHub", url: "https://github.com/ericmantswe", icon: Github },
   { name: "Email", url: "mailto:ericmantswe3@gmail.com", icon: Mail },
 ];
