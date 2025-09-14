@@ -1,5 +1,6 @@
-import type { Icon } from 'lucide-react';
+import type { Icon, LucideIcon } from 'lucide-react';
 import { Github, Linkedin, Mail, Code, Briefcase, GraduationCap, Award, User, PencilRuler } from 'lucide-react';
+import type { ComponentType } from 'react';
 
 export const PROFILE_DATA = {
   name: "Eric Obakeng Mantswe",
@@ -8,7 +9,7 @@ export const PROFILE_DATA = {
   cvUrl: "#",
 };
 
-export const SOCIAL_LINKS: { name: string; url: string; icon: Icon }[] = [
+export const SOCIAL_LINKS: { name: string; url: string; icon: ComponentType<any> }[] = [
   { name: "LinkedIn", url: "#", icon: Linkedin },
   { name: "GitHub", url: "https://github.com/ericmantswe", icon: Github },
   { name: "Email", url: "mailto:ericmantswe3@gmail.com", icon: Mail },
@@ -128,7 +129,7 @@ export const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-export const SECTION_MAP: Record<string, { id: string; icon: Icon; title: string }> = {
+export const SECTION_MAP: Record<string, { id: string; icon: LucideIcon; title: string }> = {
   about: { id: 'about', icon: User, title: 'About Me' },
   experience: { id: 'experience', icon: Briefcase, title: 'Projects & Experience' },
   projects: { id: 'projects', icon: Code, title: 'Portfolio' },
