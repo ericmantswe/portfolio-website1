@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import Image from 'next/image';
 
 const initialState: FormState = {
   success: false,
@@ -44,22 +45,30 @@ const Contact = () => {
   }, [state, toast]);
 
   return (
-    <SectionWrapper id={id}>
+    <SectionWrapper id={id} className="relative overflow-hidden">
+       <Image
+          src="https://picsum.photos/seed/contactbg/1920/1080"
+          alt="Contact background"
+          fill
+          className="object-cover -z-10"
+          data-ai-hint="abstract background"
+        />
+        <div className="absolute inset-0 bg-background/50 -z-10" />
       <SectionTitle icon={icon}>{title}</SectionTitle>
-      <Card className="max-w-2xl mx-auto shadow-lg">
+      <Card className="max-w-2xl mx-auto shadow-lg bg-card/20 backdrop-blur-sm border-white/10">
         <CardContent className="pt-6">
           <form action={formAction} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" placeholder="Your Name" required />
+              <Input id="name" name="name" placeholder="Your Name" required className="bg-transparent/50 placeholder:text-foreground/70" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+              <Input id="email" name="email" type="email" placeholder="your.email@example.com" required className="bg-transparent/50 placeholder:text-foreground/70" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="message">Message</Label>
-              <Textarea id="message" name="message" placeholder="Your message..." required minLength={10} />
+              <Textarea id="message" name="message" placeholder="Your message..." required minLength={10} className="bg-transparent/50 placeholder:text-foreground/70" />
             </div>
             <SubmitButton />
           </form>
