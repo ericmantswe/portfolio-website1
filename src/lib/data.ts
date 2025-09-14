@@ -90,8 +90,8 @@ export const PROJECTS: Project[] = [
     imageHint: "ride sharing app",
     tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
     versions: [
-      { name: "Version 1", liveUrl: "#", repoUrl: "#" },
-      { name: "Version 2", liveUrl: "#", repoUrl: "#" },
+      { name: "Version 1", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
+      { name: "Version 2", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
     ],
   },
   {
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     imageUrl: "https://i.postimg.cc/pXysp25q/Centerbase.png",
     imageHint: "restaurant order",
     liveUrl: "https://studio--centerbase-food-services.us-central1.hosted.app/",
-    repoUrl: "#",
+    repoUrl: "https://github.com/ericmantswe",
     tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
   },
   {
@@ -112,8 +112,8 @@ export const PROJECTS: Project[] = [
     imageHint: "tech company",
     tags: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
     versions: [
-      { name: "Version 1", liveUrl: "#", repoUrl: "#" },
-      { name: "Version 2", liveUrl: "#", repoUrl: "#" },
+      { name: "Version 1", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
+      { name: "Version 2", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
     ],
   },
 ];
