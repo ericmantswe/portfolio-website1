@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { PROFILE_DATA } from '@/lib/data';
 import { ThemeToggle } from './theme-toggle';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -32,10 +32,10 @@ const Header = () => {
         isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
       )}
     >
-      <div className="container flex h-24 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex flex-col text-sm uppercase tracking-wider">
-          <span className="font-bold">{PROFILE_DATA.name}</span>
-          <span className="text-foreground/60 text-xs md:text-sm">{PROFILE_DATA.title}</span>
+          <span className="font-bold text-base">{PROFILE_DATA.name}</span>
+          <span className="text-foreground/60 text-xs">{PROFILE_DATA.title}</span>
         </Link>
 
         {/* Desktop Menu */}
