@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
         liveUrl: "https://ericmantswe.github.io/Xaloo-tech/index.html",
         repoUrl: "https://github.com/ericmantswe",
       },
-      { name: "Version 2", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
+      { name: "Version 2", liveUrl: "https://xaloo-firebase.vercel.app/", repoUrl: "https://github.com/ericmantswe" },
     ],
   },
 ];
