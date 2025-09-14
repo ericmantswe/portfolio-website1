@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container flex h-24 items-center justify-between text-sm uppercase tracking-widest">
         <Link href="/" className="flex flex-col">
           <span className="font-bold">{PROFILE_DATA.name}</span>
-          <span className="text-foreground/60">{PROFILE_DATA.title}</span>
+          <span className="text-foreground/60">Web Developer and Mechatronics Undergraduate</span>
         </Link>
 
         <div className="hidden md:flex flex-col text-right">
