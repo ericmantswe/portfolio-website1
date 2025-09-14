@@ -66,7 +66,7 @@ export const PROJECTS = [
   {
     id: "project-1",
     title: "RideLink",
-    description: "A transportation platform connecting students and residents with trusted taxi drivers, featuring live chat, driver ratings, and ride requests.",
+    description: "This project has two versions. Version 1 was built with HTML, CSS, and JavaScript. Version 2 was upgraded to use Firebase, React, and TypeScript.",
     imageUrl: "https://picsum.photos/seed/1/600/400",
     imageHint: "ride sharing app",
     liveUrl: "#",
