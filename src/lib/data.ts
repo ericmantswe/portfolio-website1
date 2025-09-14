@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
     description: "A responsive website to streamline customer orders and business operations for a food service company.",
     imageUrl: "https://i.postimg.cc/pXysp25q/Centerbase.png",
     imageHint: "restaurant order",
-    liveUrl: "#",
+    liveUrl: "https://studio--centerbase-food-services.us-central1.hosted.app/",
     repoUrl: "#",
     tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
   },
