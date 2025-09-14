@@ -41,7 +41,7 @@ const Projects = () => {
                 ))}
               </div>
             </CardContent>
-            <CardFooter className="flex justify-end gap-2">
+            <CardFooter className="flex justify-end gap-2" suppressHydrationWarning>
               {project.versions ? (
                 <>
                   <DropdownMenu>

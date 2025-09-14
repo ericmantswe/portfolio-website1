@@ -58,7 +58,7 @@ const Contact = () => {
       <SectionTitle icon={icon}>{title}</SectionTitle>
       <Card className="max-w-2xl mx-auto shadow-lg bg-card/20 backdrop-blur-sm border-white/10">
         <CardContent className="pt-6">
-          <form action={formAction} className="space-y-4">
+          <form action={formAction} className="space-y-4" suppressHydrationWarning>
             <input type="hidden" name="access_key" value="babf6ce9-3446-4f80-9529-d7f503c74b89" />
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>

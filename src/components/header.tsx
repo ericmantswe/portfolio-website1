@@ -20,6 +20,7 @@ const Header = () => {
 
   return (
     <header
+      suppressHydrationWarning
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
