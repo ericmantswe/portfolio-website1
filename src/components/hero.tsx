@@ -6,7 +6,7 @@ import { PROFILE_DATA } from '@/lib/data';
 const Hero = () => {
   return (
     <section id="home" className="relative bg-background overflow-hidden">
-      <div className="container min-h-screen flex flex-col items-center justify-center pt-24 pb-12">
+      <div className="container min-h-screen flex flex-col items-center justify-center pt-12 pb-12">
         <div className="w-full">
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
