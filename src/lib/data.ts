@@ -49,7 +49,7 @@ export const WORK_EXPERIENCE = [
     description: [
       "Version 1: Designed and implemented the company website using HTML, CSS, and JavaScript.",
       "Version 2: Rebuilt the website using TypeScript and React to improve performance, scalability, and maintainability.",
-      "Focused on responsive design, clean layout, and enhanced user experience.",
+      "Focused on responsive design, a clean layout, and enhanced user experience.",
     ],
   },
 ];
@@ -112,7 +112,7 @@ export const PROJECTS: Project[] = [
     imageHint: "tech company",
     tags: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
     versions: [
-      { name: "Version 1", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
+      { name: "Version 1", liveUrl: "https://ericmantswe.github.io/Xaloo-tech/index.html", repoUrl: "https://github.com/ericmantswe" },
       { name: "Version 2", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
     ],
   },
