@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PROFILE_DATA } from '@/lib/data';
+import { ThemeToggle } from './theme-toggle';
 
 const Header = () => {
   return (
@@ -13,14 +14,17 @@ const Header = () => {
           <span className="text-foreground/60">Web Developer and Mechatronics Undergraduate</span>
         </Link>
 
-        <div className="hidden md:flex flex-col text-right">
-          <span>AVAILABLE FOR FREELANCE</span>
-          <span className="text-foreground/60">WORK & PROJECTS</span>
+        <div className="flex items-center gap-4">
+            <div className="hidden md:flex flex-col text-right">
+                <span>AVAILABLE FOR FREELANCE</span>
+                <span className="text-foreground/60">WORK & PROJECTS</span>
+            </div>
+            
+            <Button asChild variant="default" className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse-gradient">
+              <a href="#contact">Contact</a>
+            </Button>
+            <ThemeToggle />
         </div>
-        
-        <Button asChild variant="default" className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse-gradient">
-          <a href="#contact">Contact</a>
-        </Button>
       </div>
     </header>
   );
