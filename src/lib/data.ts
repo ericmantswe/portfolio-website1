@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     imageHint: "ride sharing app",
     tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
     versions: [
-      { name: "Version 1", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
+      { name: "Version 1", liveUrl: "https://ericmantswe.github.io/Ride-Link/index.html", repoUrl: "https://github.com/ericmantswe" },
       { name: "Version 2", liveUrl: "#", repoUrl: "https://github.com/ericmantswe" },
     ],
   },
