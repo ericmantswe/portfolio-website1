@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useActionState } from 'react';
+import { useEffect } from 'react';
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { submitContactForm, type FormState } from '@/app/actions';
 import { SECTION_MAP } from '@/lib/data';
@@ -58,6 +59,7 @@ const Contact = () => {
       <Card className="max-w-2xl mx-auto shadow-lg bg-card/20 backdrop-blur-sm border-white/10">
         <CardContent className="pt-6">
           <form action={formAction} className="space-y-4">
+            <input type="hidden" name="access_key" value="babf6ce9-3446-4f80-9529-d7f503c74b89" />
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
               <Input id="name" name="name" placeholder="Your Name" required className="bg-transparent/50 placeholder:text-foreground/70" />

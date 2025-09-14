@@ -30,12 +30,32 @@ export async function submitContactForm(
     };
   }
   
-  // Here you would typically send an email or save to a database.
-  // For this example, we'll just simulate a successful submission.
-  console.log("Form submitted successfully:", validatedFields.data);
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-  return {
-    success: true,
-    message: "Thank you for your message! I'll get back to you soon.",
-  };
+    const result = await response.json();
+
+    if (result.success) {
+      console.log("Form submitted successfully:", result);
+      return {
+        success: true,
+        message: "Thank you for your message! I'll get back to you soon.",
+      };
+    } else {
+      console.error("Error submitting form:", result);
+      return {
+        success: false,
+        message: result.message || "Something went wrong. Please try again.",
+      };
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    return {
+      success: false,
+      message: "Something went wrong. Please try again.",
+    };
+  }
 }
