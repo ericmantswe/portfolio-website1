@@ -62,16 +62,37 @@ export const EDUCATION = [
   },
 ];
 
-export const PROJECTS = [
+type ProjectVersion = {
+  name: string;
+  liveUrl: string;
+  repoUrl: string;
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  imageHint: string;
+  tags: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  versions?: ProjectVersion[];
+};
+
+
+export const PROJECTS: Project[] = [
   {
     id: "project-1",
     title: "RideLink",
     description: "This project has two versions. Version 1 was built with HTML, CSS, and JavaScript. Version 2 was upgraded to use Firebase, React, and TypeScript.",
     imageUrl: "https://picsum.photos/seed/1/600/400",
     imageHint: "ride sharing app",
-    liveUrl: "#",
-    repoUrl: "#",
     tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
+    versions: [
+      { name: "Version 1", liveUrl: "#", repoUrl: "#" },
+      { name: "Version 2", liveUrl: "#", repoUrl: "#" },
+    ],
   },
   {
     id: "project-2",

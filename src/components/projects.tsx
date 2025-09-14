@@ -5,8 +5,13 @@ import SectionTitle from './section-title';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { ExternalLink, Github, ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Projects = () => {
   const { id, icon, title } = SECTION_MAP.projects;
@@ -37,16 +42,51 @@ const Projects = () => {
               </div>
             </CardContent>
             <CardFooter className="flex justify-end gap-2">
-              <Button asChild variant="ghost" size="sm">
-                <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" /> Code
-                </a>
-              </Button>
-              <Button asChild size="sm" variant="outline" className="border-foreground/50 hover:bg-foreground hover:text-background">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                </a>
-              </Button>
+              {project.versions ? (
+                <>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm">
+                        <Github className="mr-2 h-4 w-4" /> Code <ChevronDown className="ml-1 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      {project.versions.map((version) => (
+                        <DropdownMenuItem key={version.name} asChild>
+                          <a href={version.repoUrl} target="_blank" rel="noopener noreferrer">{version.name}</a>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button size="sm" variant="outline" className="border-foreground/50 hover:bg-foreground hover:text-background">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo <ChevronDown className="ml-1 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      {project.versions.map((version) => (
+                        <DropdownMenuItem key={version.name} asChild>
+                           <a href={version.liveUrl} target="_blank" rel="noopener noreferrer">{version.name}</a>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
+              ) : (
+                <>
+                  <Button asChild variant="ghost" size="sm">
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" /> Code
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="outline" className="border-foreground/50 hover:bg-foreground hover:text-background">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </a>
+                  </Button>
+                </>
+              )}
             </CardFooter>
           </Card>
         ))}
