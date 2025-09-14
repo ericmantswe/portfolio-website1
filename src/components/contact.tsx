@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { submitContactForm, type FormState } from '@/app/actions';
 import { SECTION_MAP } from '@/lib/data';
 import SectionWrapper from './section-wrapper';
@@ -32,7 +32,7 @@ function SubmitButton() {
 const Contact = () => {
   const { id, icon, title } = SECTION_MAP.contact;
   const { toast } = useToast();
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
 
   useEffect(() => {
     if (state.message) {
