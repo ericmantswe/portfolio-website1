@@ -10,7 +10,7 @@ export const PROFILE_DATA = {
 };
 
 export const SOCIAL_LINKS: { name: string; url: string; icon: ComponentType<any> }[] = [
-  { name: "LinkedIn", url: "#", icon: Linkedin },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/eric-mantswe-859b39364/", icon: Linkedin },
   { name: "GitHub", url: "https://github.com/ericmantswe", icon: Github },
   { name: "Email", url: "mailto:ericmantswe3@gmail.com", icon: Mail },
 ];
@@ -119,7 +119,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-export const ACHIEVEMENTS: { title: string; description: string; icon: Icon }[] = [];
+export const ACHIEVEMENTS: { title: string; description: string; icon: LucideIcon }[] = [];
 
 
 export const NAV_LINKS = [
