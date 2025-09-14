@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
     id: "project-3",
     title: "Xaloo Technologies Website",
     description: "Company website with two versions. V1 was built with HTML, CSS, and Javascript. V2 was upgraded to React and TypeScript for better performance.",
-    imageUrl: "https://picsum.photos/seed/3/600/400",
+    imageUrl: "https://i.postimg.cc/dVNvGQ53/Xaloo.png",
     imageHint: "tech company",
     tags: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
     versions: [
