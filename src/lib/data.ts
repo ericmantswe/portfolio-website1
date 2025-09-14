@@ -2,110 +2,79 @@ import type { Icon } from 'lucide-react';
 import { Github, Linkedin, Mail, Code, Briefcase, GraduationCap, Award, User, PencilRuler } from 'lucide-react';
 
 export const PROFILE_DATA = {
-  name: "Jensen Omega",
-  title: "Software Developer",
-  about: "I am a design-minded software developer focused on building beautiful interfaces and experiences on the web, working with brands and industry leaders.",
-  cvUrl: "/jensen-omega-cv.pdf",
+  name: "Eric Obakeng Mantswe",
+  title: "Web Developer & Tech Innovator",
+  about: "Motivated Mechatronics and Industrial Instrumentation student with hands-on experience in web development, industrial automation solutions, and tech entrepreneurship. Skilled in building responsive web applications, managing projects, and delivering practical solutions for business and community needs. Highly adaptable with a strong problem-solving mindset and a passion for technology-driven innovation.",
+  cvUrl: "#",
 };
 
 export const SOCIAL_LINKS: { name: string; url: string; icon: Icon }[] = [
-  { name: "LinkedIn", url: "https://www.linkedin.com", icon: Linkedin },
-  { name: "GitHub", url: "https://github.com", icon: Github },
-  { name: "Email", url: "mailto:jensen.omega@example.com", icon: Mail },
+  { name: "LinkedIn", url: "#", icon: Linkedin },
+  { name: "GitHub", url: "#", icon: Github },
+  { name: "Email", url: "mailto:ericmantswe3@gmail.com", icon: Mail },
 ];
 
 export const SKILLS: Record<string, string[]> = {
-  "Languages & Frontend": ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
-  "Backend & Databases": ["Node.js", "Express", "Python", "PostgreSQL", "MongoDB", "Firebase"],
-  "Tools & Platforms": ["Docker", "Git & GitHub", "Vercel", "AWS", "CI/CD"],
+  "Web Development": ["HTML", "CSS", "JavaScript", "Firebase", "React", "Responsive Design"],
+  "Software & Design": ["Microsoft Office Suite", "SolidWorks", "Fusion 360", "Blender"],
+  "Programming & Other": ["C", "C++", "Database management", "Project planning", "Problem-solving"],
 };
 
 export const WORK_EXPERIENCE = [
   {
-    company: "Tech Solutions Inc.",
-    role: "Senior Software Engineer",
-    period: "Jun 2020 - Present",
+    company: "RideLink",
+    role: "Founder & Developer",
+    period: "2024 - Present",
     description: [
-      "Led the development of a high-traffic e-commerce platform, improving performance by 30% and conversion rates by 15%.",
-      "Architected and implemented a new microservices-based backend using Node.js and Docker, enhancing scalability and maintainability.",
-      "Mentored a team of 4 junior developers, fostering their growth through code reviews and pair programming sessions.",
+      "Designed and implemented a transportation platform connecting students and residents with trusted taxi drivers.",
+      "Integrated live chat, driver ratings, and ride request functionalities using Firebase and JavaScript.",
+      "Developed user-friendly interfaces and ensured secure authentication for all users.",
     ],
   },
   {
-    company: "Web Innovators",
-    role: "Software Engineer",
-    period: "Jul 2018 - May 2020",
+    company: "Center Base Food Services",
+    role: "Web Developer",
+    period: "2023 - Present",
     description: [
-      "Developed and maintained client-facing features for a SaaS application using React and Node.js.",
-      "Collaborated with designers and product managers to translate wireframes into high-quality, responsive user interfaces.",
-      "Wrote comprehensive unit and integration tests, increasing code coverage to over 90%.",
+      "Developed a website for Center Base Food Services to streamline customer orders and business operations.",
+      "Implemented responsive design and interactive features to enhance user experience.",
     ],
   },
 ];
 
 export const EDUCATION = [
   {
-    institution: "University of Technology",
-    degree: "M.S. in Computer Science",
-    period: "2016 - 2018",
-  },
-  {
-    institution: "State University",
-    degree: "B.S. in Software Engineering",
-    period: "2012 - 2016",
+    institution: "Botswana International University of Science and Technology (BIUST)",
+    degree: "Mechatronics and Industrial Instrumentation",
+    period: "Expected Graduation: 2028",
   },
 ];
 
 export const PROJECTS = [
   {
     id: "project-1",
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce website with a modern design, payment integration, and an admin dashboard.",
+    title: "RideLink",
+    description: "A transportation platform connecting students and residents with trusted taxi drivers, featuring live chat, driver ratings, and ride requests.",
     imageUrl: "https://picsum.photos/seed/1/600/400",
-    imageHint: "online store",
+    imageHint: "ride sharing app",
     liveUrl: "#",
     repoUrl: "#",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    tags: ["JavaScript", "Firebase", "HTML/CSS"],
   },
   {
     id: "project-2",
-    title: "Task Management App",
-    description: "A collaborative task management tool with real-time updates, drag-and-drop functionality, and user authentication.",
+    title: "Center Base Food Services Website",
+    description: "A responsive website to streamline customer orders and business operations for a food service company.",
     imageUrl: "https://picsum.photos/seed/2/600/400",
-    imageHint: "to-do list",
+    imageHint: "restaurant order",
     liveUrl: "#",
     repoUrl: "#",
-    tags: ["React", "Firebase", "Tailwind CSS"],
-  },
-  {
-    id: "project-3",
-    title: "Data Visualization Dashboard",
-    description: "A dynamic dashboard for visualizing complex datasets, featuring interactive charts and filtering options.",
-    imageUrl: "https://picsum.photos/seed/3/600/400",
-    imageHint: "analytics charts",
-    liveUrl: "#",
-    repoUrl: "#",
-    tags: ["React", "D3.js", "Node.js"],
+    tags: ["HTML", "CSS", "JavaScript"],
   },
 ];
 
-export const ACHIEVEMENTS = [
-  {
-    title: "Hackathon Winner - 1st Place",
-    description: "Won the 2021 Global Tech Hackathon for developing an innovative accessibility tool for web applications.",
-    icon: Award,
-  },
-  {
-    title: "AWS Certified Cloud Practitioner",
-    description: "Demonstrated foundational knowledge of AWS cloud services and infrastructure.",
-    icon: Award,
-  },
-  {
-    title: "Published Technical Writer",
-    description: "Authored several articles on modern web development for a popular online tech publication.",
-    icon: Award,
-  },
-];
+export const ACHIEVEMENTS: { title: string; description: string; icon: Icon }[] = [];
+
 
 export const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -116,9 +85,9 @@ export const NAV_LINKS = [
 
 export const SECTION_MAP: Record<string, { id: string; icon: Icon; title: string }> = {
   about: { id: 'about', icon: User, title: 'About Me' },
-  experience: { id: 'experience', icon: Briefcase, title: 'Work Experience' },
-  projects: { id: 'projects', icon: Code, title: 'Projects' },
-  skills: { id: 'skills', icon: PencilRuler, title: 'Skills' },
+  experience: { id: 'experience', icon: Briefcase, title: 'Projects & Experience' },
+  projects: { id: 'projects', icon: Code, title: 'Portfolio' },
+  skills: { id: 'skills', icon: PencilRuler, title: 'Technical Skills' },
   education: { id: 'education', icon: GraduationCap, title: 'Education' },
   achievements: { id: 'achievements', icon: Award, title: 'Achievements' },
   contact: { id: 'contact', icon: Mail, title: 'Get in Touch' },
