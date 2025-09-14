@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     imageHint: "restaurant order",
     liveUrl: "#",
     repoUrl: "#",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
   },
   {
     id: "project-3",
