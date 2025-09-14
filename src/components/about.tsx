@@ -11,9 +11,10 @@ const About = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
         <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0">
           <Image
-            src="https://picsum.photos/seed/profile/400/400"
+            src="https://i.postimg.cc/85K5y8BP/Eric-Profile.jpg"
             alt={PROFILE_DATA.name}
-            fill
+            width={400}
+            height={400}
             className="rounded-full object-cover border-4 border-primary/20 shadow-lg"
             data-ai-hint="profile picture"
           />
