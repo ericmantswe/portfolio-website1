@@ -9,7 +9,7 @@ const Hero = () => {
             Front-End
           </h1>
           <div className="flex items-center justify-between">
-             <h1 className="text-[10vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-foreground/80">
+             <h1 className="text-[10vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-primary to-foreground/80">
               Developer
             </h1>
             <p className="max-w-xs text-foreground/80 hidden md:block">
