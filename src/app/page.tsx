@@ -7,6 +7,7 @@ import Education from '@/components/education';
 import Projects from '@/components/projects';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
+import MotionWrapper from '@/components/motion-wrapper';
 
 export default function Home() {
   return (
@@ -14,12 +15,24 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Education />
-        <Contact />
+        <MotionWrapper>
+          <About />
+        </MotionWrapper>
+        <MotionWrapper>
+          <Experience />
+        </MotionWrapper>
+        <MotionWrapper>
+          <Projects />
+        </MotionWrapper>
+        <MotionWrapper>
+          <Skills />
+        </MotionWrapper>
+        <MotionWrapper>
+          <Education />
+        </MotionWrapper>
+        <MotionWrapper>
+          <Contact />
+        </MotionWrapper>
       </main>
       <Footer />
     </div>
