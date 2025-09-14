@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Profolio',
-  description: 'Professional portfolio for Jensen Omega',
+  description: 'Explore the professional portfolio of Eric Obakeng Mantswe – showcasing web development, front-end projects, responsive designs, and innovative digital solutions built with HTML, CSS, JavaScript, React, and Firebase.',
 };
 
 export default function RootLayout({
