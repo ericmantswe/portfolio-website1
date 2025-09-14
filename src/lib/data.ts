@@ -15,20 +15,22 @@ export const SOCIAL_LINKS: { name: string; url: string; icon: Icon }[] = [
 ];
 
 export const SKILLS: Record<string, string[]> = {
-  "Web Development": ["HTML", "CSS", "JavaScript", "Firebase", "React", "Responsive Design"],
+  "Web Development": ["HTML", "CSS", "JavaScript", "Firebase", "React", "Responsive Design", "TypeScript"],
   "Software & Design": ["Microsoft Office Suite", "SolidWorks", "Fusion 360", "Blender"],
   "Programming & Other": ["C", "C++", "Database management", "Project planning", "Problem-solving"],
+  "Languages": ["English (Fluent)", "Setswana (Fluent)", "Chinese (Beginner)"],
 };
 
 export const WORK_EXPERIENCE = [
   {
-    company: "RideLink",
+    company: "RideLink (Version 1 & 2)",
     role: "Founder & Developer",
     period: "2024 - Present",
     description: [
+      "Version 1: Built using HTML, CSS, JavaScript, and Firebase.",
+      "Version 2: Upgraded to TypeScript and React for improved scalability and performance.",
       "Designed and implemented a transportation platform connecting students and residents with trusted taxi drivers.",
-      "Integrated live chat, driver ratings, and ride request functionalities using Firebase and JavaScript.",
-      "Developed user-friendly interfaces and ensured secure authentication for all users.",
+      "Integrated live chat, driver ratings, and ride request functionalities with secure authentication.",
     ],
   },
   {
@@ -38,6 +40,16 @@ export const WORK_EXPERIENCE = [
     description: [
       "Developed a website for Center Base Food Services to streamline customer orders and business operations.",
       "Implemented responsive design and interactive features to enhance user experience.",
+    ],
+  },
+  {
+    company: "Xaloo Technologies",
+    role: "Web Developer",
+    period: "2023 - Present",
+    description: [
+      "Version 1: Designed and implemented the company website using HTML, CSS, and JavaScript.",
+      "Version 2: Rebuilt the website using TypeScript and React to improve performance, scalability, and maintainability.",
+      "Focused on responsive design, clean layout, and enhanced user experience.",
     ],
   },
 ];
@@ -59,7 +71,7 @@ export const PROJECTS = [
     imageHint: "ride sharing app",
     liveUrl: "#",
     repoUrl: "#",
-    tags: ["JavaScript", "Firebase", "HTML/CSS"],
+    tags: ["JavaScript", "Firebase", "HTML/CSS", "React", "TypeScript"],
   },
   {
     id: "project-2",
@@ -70,6 +82,16 @@ export const PROJECTS = [
     liveUrl: "#",
     repoUrl: "#",
     tags: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: "project-3",
+    title: "Xaloo Technologies Website",
+    description: "Company website focused on responsive design, clean layout, and enhanced user experience.",
+    imageUrl: "https://picsum.photos/seed/3/600/400",
+    imageHint: "tech company",
+    liveUrl: "#",
+    repoUrl: "#",
+    tags: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
   },
 ];
 
