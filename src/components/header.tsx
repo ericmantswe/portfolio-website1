@@ -18,7 +18,7 @@ const Header = () => {
           <span className="text-foreground/60">WORK & PROJECTS</span>
         </div>
         
-        <Button asChild variant="outline" className="rounded-full border-foreground/50 hover:bg-foreground hover:text-background">
+        <Button asChild variant="default" className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse-gradient">
           <a href="#contact">Contact</a>
         </Button>
       </div>
