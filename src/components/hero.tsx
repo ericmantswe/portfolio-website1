@@ -6,22 +6,22 @@ import { PROFILE_DATA } from '@/lib/data';
 const Hero = () => {
   return (
     <section id="home" className="relative bg-background overflow-hidden">
-      <div className="container min-h-screen flex flex-col items-center justify-center pt-12 pb-12">
+      <div className="container min-h-screen flex flex-col items-center justify-center text-center md:text-left pt-24 pb-12">
         <div className="w-full">
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="text-[14vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-foreground/80"
+            className="text-[16vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-foreground/80"
           >
             Front-End
           </motion.h1>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row items-center md:justify-between">
              <motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-                className="text-[14vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-foreground from-70% to-primary"
+                className="text-[16vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-foreground from-70% to-primary"
              >
               Developer
             </motion.h1>
@@ -35,6 +35,14 @@ const Hero = () => {
             </motion.p>
           </div>
         </div>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="max-w-xl text-foreground/80 mt-8 md:hidden text-center"
+        >
+          {PROFILE_DATA.about}
+        </motion.p>
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
