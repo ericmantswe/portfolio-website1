@@ -1,10 +1,10 @@
 import type { Icon } from 'lucide-react';
-import { Github, Linkedin, Mail, Code, Briefcase, GraduationCap, Award, User, DraftingCompass, Server, PencilRuler } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, Briefcase, GraduationCap, Award, User, PencilRuler } from 'lucide-react';
 
 export const PROFILE_DATA = {
   name: "Jensen Omega",
   title: "Software Developer",
-  about: "I am a passionate full-stack software engineer with a knack for creating elegant solutions in the least amount of time. I specialize in building modern, responsive web applications using cutting-edge technologies. My goal is to always build products that provide pixel-perfect, performant experiences.",
+  about: "I am a design-minded software developer focused on building beautiful interfaces and experiences on the web, working with brands and industry leaders.",
   cvUrl: "/jensen-omega-cv.pdf",
 };
 

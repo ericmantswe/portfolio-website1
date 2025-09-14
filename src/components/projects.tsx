@@ -11,11 +11,11 @@ import { cn } from '@/lib/utils';
 const Projects = () => {
   const { id, icon, title } = SECTION_MAP.projects;
   return (
-    <SectionWrapper id={id} className="bg-card">
+    <SectionWrapper id={id}>
       <SectionTitle icon={icon}>{title}</SectionTitle>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {PROJECTS.map((project) => (
-          <Card key={project.id} className="flex flex-col overflow-hidden group transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <Card key={project.id} className="flex flex-col overflow-hidden group transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl bg-secondary border-border">
             <CardHeader>
               <div className="aspect-video relative overflow-hidden rounded-md">
                 <Image
@@ -32,7 +32,7 @@ const Projects = () => {
               <CardDescription>{project.description}</CardDescription>
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">{tag}</Badge>
+                  <Badge key={tag} variant="secondary" className="bg-background/50">{tag}</Badge>
                 ))}
               </div>
             </CardContent>
@@ -42,7 +42,7 @@ const Projects = () => {
                   <Github className="mr-2 h-4 w-4" /> Code
                 </a>
               </Button>
-              <Button asChild size="sm">
+              <Button asChild size="sm" variant="outline" className="border-foreground/50 hover:bg-foreground hover:text-background">
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                 </a>

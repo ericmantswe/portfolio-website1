@@ -11,14 +11,13 @@ const SectionTitle: FC<SectionTitleProps> = ({ children, icon: Icon, className, 
     <div className="flex flex-col items-center text-center mb-12">
       <h2
         className={cn(
-          'font-headline text-4xl md:text-5xl font-bold text-foreground flex items-center gap-4',
+          'text-5xl md:text-6xl font-black text-foreground uppercase tracking-tighter',
           className
         )}
         {...props}
       >
         {children}
       </h2>
-      <div className="mt-4 w-16 h-1 bg-primary rounded-full" />
     </div>
   );
 };
