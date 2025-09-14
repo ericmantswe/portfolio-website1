@@ -12,7 +12,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="text-[18vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-foreground/80"
+            className="text-[15vw] md:text-[10vw] lg:text-[8rem] font-black leading-none tracking-tighter uppercase text-foreground/80"
           >
             Front-End
           </motion.h1>
@@ -21,7 +21,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-                className="text-[18vw] md:text-[12vw] lg:text-[10rem] font-black leading-none tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-foreground from-70% to-primary"
+                className="text-[15vw] md:text-[10vw] lg:text-[8rem] font-black leading-none tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-foreground from-70% to-primary"
              >
               Developer
             </motion.h1>
@@ -43,17 +43,17 @@ const Hero = () => {
         >
           {PROFILE_DATA.about}
         </motion.p>
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <a href="#about" aria-label="Scroll to about section" className="uppercase text-sm tracking-widest text-foreground/60">
-            Scroll down
-          </a>
-        </motion.div>
       </div>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <a href="#about" aria-label="Scroll to about section" className="uppercase text-sm tracking-widest text-foreground/60">
+          Scroll down
+        </a>
+      </motion.div>
     </section>
   );
 };
