@@ -4,7 +4,7 @@ import type { ComponentType } from 'react';
 
 export const PROFILE_DATA = {
   name: "Eric Obakeng Mantswe",
-  title: "Web Developer & Tech Innovator",
+  title: "Web Developer and Mechatronics Undergraduate",
   about: "Motivated Mechatronics and Industrial Instrumentation student with hands-on experience in web development, industrial automation solutions, and tech entrepreneurship. Skilled in building responsive web applications, managing projects, and delivering practical solutions for business and community needs. Highly adaptable with a strong problem-solving mindset and a passion for technology-driven innovation.",
   cvUrl: "#",
 };
