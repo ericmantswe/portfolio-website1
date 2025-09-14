@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
     id: "project-2",
     title: "Center Base Food Services Website",
     description: "A responsive website to streamline customer orders and business operations for a food service company.",
-    imageUrl: "https://picsum.photos/seed/2/600/400",
+    imageUrl: "https://i.postimg.cc/pXysp25q/Centerbase.png",
     imageHint: "restaurant order",
     liveUrl: "#",
     repoUrl: "#",
