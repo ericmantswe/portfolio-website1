@@ -2,16 +2,16 @@ import type { Icon } from 'lucide-react';
 import { Github, Linkedin, Mail, Code, Briefcase, GraduationCap, Award, User, DraftingCompass, Server, PencilRuler } from 'lucide-react';
 
 export const PROFILE_DATA = {
-  name: "Alex Doe",
-  title: "Full-Stack Software Engineer",
+  name: "Jensen Omega",
+  title: "Software Developer",
   about: "I am a passionate full-stack software engineer with a knack for creating elegant solutions in the least amount of time. I specialize in building modern, responsive web applications using cutting-edge technologies. My goal is to always build products that provide pixel-perfect, performant experiences.",
-  cvUrl: "/alex-doe-cv.pdf",
+  cvUrl: "/jensen-omega-cv.pdf",
 };
 
 export const SOCIAL_LINKS: { name: string; url: string; icon: Icon }[] = [
   { name: "LinkedIn", url: "https://www.linkedin.com", icon: Linkedin },
   { name: "GitHub", url: "https://github.com", icon: Github },
-  { name: "Email", url: "mailto:alex.doe@example.com", icon: Mail },
+  { name: "Email", url: "mailto:jensen.omega@example.com", icon: Mail },
 ];
 
 export const SKILLS: Record<string, string[]> = {
@@ -108,8 +108,8 @@ export const ACHIEVEMENTS = [
 ];
 
 export const NAV_LINKS = [
+  { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
 ];

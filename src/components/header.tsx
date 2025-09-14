@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, Code } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { NAV_LINKS, PROFILE_DATA } from '@/lib/data';
@@ -27,7 +27,7 @@ const Header = () => {
           key={link.href}
           href={link.href}
           onClick={() => setMobileMenuOpen(false)}
-          className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+          className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium text-lg md:text-base"
         >
           {link.label}
         </a>
@@ -39,16 +39,15 @@ const Header = () => {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-card/80 backdrop-blur-sm border-b' : 'bg-transparent'
+        isScrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg font-headline">{PROFILE_DATA.name}</span>
+          <span className="font-bold text-xl font-headline">{PROFILE_DATA.name}</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           <NavLinks />
         </nav>
 
@@ -60,8 +59,8 @@ const Header = () => {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <div className="flex flex-col gap-6 pt-10">
+            <SheetContent side="right" className="bg-background">
+              <div className="flex flex-col gap-8 pt-10 items-center">
                 <NavLinks />
               </div>
             </SheetContent>
