@@ -17,6 +17,12 @@
       "description": "A personal portfolio website to showcase my skills and projects, built with performance and aesthetics in mind.",
       "imageUrl": "https://picsum.photos/seed/3/600/400",
       "imageHint": "personal website"
+    },
+    {
+      "id": "footer-branding",
+      "description": "A professional minimalist branding element for the footer.",
+      "imageUrl": "https://picsum.photos/seed/footer-brand/300/100",
+      "imageHint": "minimalist logo"
     }
   ]
 }
