@@ -8,7 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 const Projects = () => {
   const { id, icon, title } = SECTION_MAP.projects;
@@ -17,15 +16,12 @@ const Projects = () => {
   const duplicatedProjects = [...PROJECTS, ...PROJECTS];
 
   return (
-    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center bg-background/50">
+    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center bg-background">
       <SectionTitle icon={icon}>{title}</SectionTitle>
       
       <div className="mt-12 w-full relative">
-        {/* Subtle background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] aspect-square bg-primary/5 rounded-full blur-[120px] -z-10" />
-        
         {/* Infinite Scroll Container */}
-        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex overflow-hidden">
           <motion.div 
             className="flex gap-6 py-4"
             animate={{
@@ -41,7 +37,7 @@ const Projects = () => {
               <SpotlightCard 
                 key={`${project.id}-${index}`} 
                 className="w-[350px] md:w-[450px] flex-shrink-0 !p-0 border-white/5 bg-card/40 backdrop-blur-sm"
-                spotlightColor="rgba(132, 0, 255, 0.15)"
+                spotlightColor="rgba(132, 0, 255, 0.1)"
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image 
@@ -51,7 +47,6 @@ const Projects = () => {
                     className="object-cover transition-transform duration-500 group-hover:scale-110" 
                     data-ai-hint={project.imageHint}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                 </div>
                 
                 <div className="p-6 space-y-4">
@@ -102,9 +97,6 @@ const Projects = () => {
           Innovative Engineering • Precision Development
         </p>
       </div>
-
-      <ProgressiveBlur position="bottom" height="150px" intensity={8} />
-      <ProgressiveBlur position="top" height="150px" intensity={8} />
     </SectionWrapper>
   );
 };
