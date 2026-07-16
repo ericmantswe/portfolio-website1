@@ -6,42 +6,42 @@ import './magic-bento.css';
 
 const DEFAULT_PARTICLE_COUNT = 16;
 const DEFAULT_SPOTLIGHT_RADIUS = 400;
-const DEFAULT_GLOW_COLOR = '34, 197, 94';
+const DEFAULT_GLOW_COLOR = '210, 210, 210';
 const MOBILE_BREAKPOINT = 768;
 
 const cardData = [
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Mechatronics',
     description: 'Robotics and industrial systems',
     label: 'Engineering'
   },
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Web Dev',
     description: 'React, Next.js, and TypeScript',
     label: 'Software'
   },
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Automation',
     description: 'Industrial instrumentation solutions',
     label: 'Control'
   },
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Entrepreneurship',
     description: 'Building tech for community needs',
     label: 'Strategy'
   },
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Design',
     description: 'SolidWorks, Fusion 360, and Blender',
     label: 'Creative'
   },
   {
-    color: '#050806',
+    color: '#0a0a0a',
     title: 'Innovation',
     description: 'Problem-solving for future tech',
     label: 'Mindset'

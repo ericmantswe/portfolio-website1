@@ -43,7 +43,7 @@ export default function Home() {
               clickEffect={true}
               spotlightRadius={300}
               particleCount={12}
-              glowColor="34, 197, 94"
+              glowColor="210, 210, 210"
             />
           </SectionWrapper>
         </MotionWrapper>
