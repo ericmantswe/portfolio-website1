@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -12,7 +13,7 @@ interface AnimatedThemeTogglerProps {
   variant?: "default" | "diamond";
 }
 
-export function AnimatedThemeToggler({ className, variant = "default" }: AnimatedThemeTogglerProps) {
+export function AnimatedThemeToggler({ className, variant = "diamond" }: AnimatedThemeTogglerProps) {
   const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
 
@@ -30,6 +31,50 @@ export function AnimatedThemeToggler({ className, variant = "default" }: Animate
 
   const isDark = resolvedTheme === "dark"
 
+  const toggleTheme = (event: React.MouseEvent) => {
+    const isAppearanceTransition =
+      // @ts-ignore
+      document.startViewTransition &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!isAppearanceTransition) {
+      setTheme(isDark ? "light" : "dark");
+      return;
+    }
+
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    );
+
+    // @ts-ignore
+    const transition = document.startViewTransition(async () => {
+      setTheme(isDark ? "light" : "dark");
+    });
+
+    transition.ready.then(() => {
+      const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `polygon(${centerX}px ${centerY}px, ${centerX}px ${centerY}px, ${centerX}px ${centerY}px, ${centerX}px ${centerY}px)`,
+            `polygon(${centerX}px ${centerY - endRadius * 1.5}px, ${centerX + endRadius * 1.5}px ${centerY}px, ${centerX}px ${centerY + endRadius * 1.5}px, ${centerX - endRadius * 1.5}px ${centerY}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  };
+
   return (
     <Button
       variant="ghost"
@@ -39,7 +84,7 @@ export function AnimatedThemeToggler({ className, variant = "default" }: Animate
         variant === "diamond" && "rotate-45 hover:rotate-[225deg] border border-primary/20 hover:border-primary/50",
         className
       )}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={toggleTheme}
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
