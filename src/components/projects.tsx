@@ -1,4 +1,3 @@
-
 'use client';
 
 import { PROJECTS, SECTION_MAP } from '@/lib/data';
@@ -6,6 +5,7 @@ import SectionWrapper from './section-wrapper';
 import SectionTitle from './section-title';
 import CarouselPortfolio, { type CarouselPortfolioItem } from '@/components/ui/carousel-portfolio';
 import { Circle, Code, FileText, Layers, Layout } from 'lucide-react';
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 const iconMap = [FileText, Layers, Layout, Circle, Code];
 
@@ -22,7 +22,7 @@ const Projects = () => {
   }));
 
   return (
-    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center">
+    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center min-h-[800px]">
       <SectionTitle icon={icon}>{title}</SectionTitle>
       
       <div className="mt-12 mb-12 flex justify-center items-center w-full min-h-[500px] relative px-4">
@@ -38,11 +38,14 @@ const Projects = () => {
         />
       </div>
       
-      <div className="mt-8 text-center">
+      <div className="mt-8 text-center relative z-20">
         <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground animate-pulse">
           Drag or swipe to explore • Swipe for details
         </p>
       </div>
+
+      <ProgressiveBlur position="bottom" height="100px" intensity={6} />
+      <ProgressiveBlur position="top" height="100px" intensity={6} />
     </SectionWrapper>
   );
 };

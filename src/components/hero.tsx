@@ -1,10 +1,10 @@
-
 'use client';
 
 import { motion } from 'framer-motion';
 import { PROFILE_DATA } from '@/lib/data';
 import { KineticText } from '@/components/ui/kinetic-text';
 import { MorphingText } from '@/components/ui/morphing-text';
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 const Hero = () => {
   const morphingTexts = [
@@ -40,7 +40,7 @@ const Hero = () => {
             className="text-[12vw] md:text-[10vw] lg:text-[7.5rem] font-[900] leading-[0.8] tracking-[-0.05em] uppercase text-white mb-4"
           />
           
-          <div className="relative w-full flex flex-col items-center justify-center min-h-[1.2em]">
+          <div className="relative w-full flex flex-col items-center justify-center min-h-[1.5em] md:min-h-[1.2em]">
             <motion.span 
               className="absolute text-[20vw] md:text-[15vw] lg:text-[12rem] font-black text-primary/5 italic z-0 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] pointer-events-none"
               initial={{ opacity: 0 }}
@@ -87,6 +87,8 @@ const Hero = () => {
           </a>
         </motion.div>
       </div>
+
+      <ProgressiveBlur position="bottom" height="15%" intensity={10} className="bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
