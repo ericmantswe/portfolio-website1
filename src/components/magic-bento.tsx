@@ -4,44 +4,44 @@ import React, { useRef, useEffect, useCallback, useState, ReactNode } from 'reac
 import { gsap } from 'gsap';
 import './magic-bento.css';
 
-const DEFAULT_PARTICLE_COUNT = 12;
-const DEFAULT_SPOTLIGHT_RADIUS = 300;
+const DEFAULT_PARTICLE_COUNT = 16;
+const DEFAULT_SPOTLIGHT_RADIUS = 400;
 const DEFAULT_GLOW_COLOR = '34, 197, 94';
 const MOBILE_BREAKPOINT = 768;
 
 const cardData = [
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Mechatronics',
     description: 'Robotics and industrial systems',
     label: 'Engineering'
   },
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Web Dev',
     description: 'React, Next.js, and TypeScript',
     label: 'Software'
   },
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Automation',
     description: 'Industrial instrumentation solutions',
     label: 'Control'
   },
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Entrepreneurship',
     description: 'Building tech for community needs',
     label: 'Strategy'
   },
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Design',
     description: 'SolidWorks, Fusion 360, and Blender',
     label: 'Creative'
   },
   {
-    color: '#0a0f0b',
+    color: '#050806',
     title: 'Innovation',
     description: 'Problem-solving for future tech',
     label: 'Mindset'
@@ -53,13 +53,13 @@ const createParticleElement = (x: number, y: number, color = DEFAULT_GLOW_COLOR)
   el.className = 'particle';
   el.style.cssText = `
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
-    background: rgba(${color}, 1);
-    box-shadow: 0 0 6px rgba(${color}, 0.6);
+    background: rgba(${color}, 0.8);
+    box-shadow: 0 0 10px rgba(${color}, 0.6);
     pointer-events: none;
-    z-index: 100;
+    z-index: 5;
     left: ${x}px;
     top: ${y}px;
   `;
@@ -67,8 +67,8 @@ const createParticleElement = (x: number, y: number, color = DEFAULT_GLOW_COLOR)
 };
 
 const calculateSpotlightValues = (radius: number) => ({
-  proximity: radius * 0.5,
-  fadeDistance: radius * 0.75
+  proximity: radius * 0.4,
+  fadeDistance: radius * 0.8
 });
 
 const updateCardGlowProperties = (card: HTMLElement, mouseX: number, mouseY: number, glow: number, radius: number) => {
@@ -133,7 +133,7 @@ const ParticleCard = ({
         scale: 0,
         opacity: 0,
         duration: 0.3,
-        ease: 'back.in(1.7)',
+        ease: 'power2.in',
         onComplete: () => {
           particle.parentNode?.removeChild(particle);
         }
@@ -157,26 +157,26 @@ const ParticleCard = ({
         cardRef.current.appendChild(clone);
         particlesRef.current.push(clone);
 
-        gsap.fromTo(clone, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' });
+        gsap.fromTo(clone, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)' });
 
         gsap.to(clone, {
-          x: (Math.random() - 0.5) * 100,
-          y: (Math.random() - 0.5) * 100,
+          x: (Math.random() - 0.5) * 120,
+          y: (Math.random() - 0.5) * 120,
           rotation: Math.random() * 360,
-          duration: 2 + Math.random() * 2,
-          ease: 'none',
+          duration: 3 + Math.random() * 3,
+          ease: 'power1.inOut',
           repeat: -1,
           yoyo: true
         });
 
         gsap.to(clone, {
-          opacity: 0.3,
-          duration: 1.5,
-          ease: 'power2.inOut',
+          opacity: 0.2,
+          duration: 2,
+          ease: 'sine.inOut',
           repeat: -1,
           yoyo: true
         });
-      }, index * 100);
+      }, index * 80);
 
       timeoutsRef.current.push(timeoutId);
     });
@@ -193,11 +193,11 @@ const ParticleCard = ({
 
       if (enableTilt) {
         gsap.to(element, {
-          rotateX: 5,
-          rotateY: 5,
-          duration: 0.3,
+          rotateX: 4,
+          rotateY: 4,
+          duration: 0.4,
           ease: 'power2.out',
-          transformPerspective: 1000
+          transformPerspective: 1200
         });
       }
     };
@@ -210,8 +210,8 @@ const ParticleCard = ({
         gsap.to(element, {
           rotateX: 0,
           rotateY: 0,
-          duration: 0.3,
-          ease: 'power2.out'
+          duration: 0.4,
+          ease: 'power3.out'
         });
       }
 
@@ -219,8 +219,8 @@ const ParticleCard = ({
         gsap.to(element, {
           x: 0,
           y: 0,
-          duration: 0.3,
-          ease: 'power2.out'
+          duration: 0.4,
+          ease: 'power3.out'
         });
       }
     };
@@ -235,26 +235,26 @@ const ParticleCard = ({
       const centerY = rect.height / 2;
 
       if (enableTilt) {
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
 
         gsap.to(element, {
           rotateX,
           rotateY,
-          duration: 0.1,
+          duration: 0.2,
           ease: 'power2.out',
-          transformPerspective: 1000
+          transformPerspective: 1200
         });
       }
 
       if (enableMagnetism) {
-        const magnetX = (x - centerX) * 0.05;
-        const magnetY = (y - centerY) * 0.05;
+        const magnetX = (x - centerX) * 0.08;
+        const magnetY = (y - centerY) * 0.08;
 
         magnetismAnimationRef.current = gsap.to(element, {
           x: magnetX,
           y: magnetY,
-          duration: 0.3,
+          duration: 0.4,
           ease: 'power2.out'
         });
       }
@@ -280,11 +280,11 @@ const ParticleCard = ({
         width: ${maxDistance * 2}px;
         height: ${maxDistance * 2}px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(${glowColor}, 0.4) 0%, rgba(${glowColor}, 0.2) 30%, transparent 70%);
+        background: radial-gradient(circle, rgba(${glowColor}, 0.3) 0%, rgba(${glowColor}, 0.1) 40%, transparent 80%);
         left: ${x - maxDistance}px;
         top: ${y - maxDistance}px;
         pointer-events: none;
-        z-index: 1000;
+        z-index: 50;
       `;
 
       element.appendChild(ripple);
@@ -298,7 +298,7 @@ const ParticleCard = ({
         {
           scale: 1,
           opacity: 0,
-          duration: 0.8,
+          duration: 1,
           ease: 'power2.out',
           onComplete: () => ripple.remove()
         }
@@ -361,17 +361,16 @@ const GlobalSpotlight = ({
       border-radius: 50%;
       pointer-events: none;
       background: radial-gradient(circle,
-        rgba(${glowColor}, 0.15) 0%,
-        rgba(${glowColor}, 0.08) 15%,
-        rgba(${glowColor}, 0.04) 25%,
-        rgba(${glowColor}, 0.02) 40%,
-        rgba(${glowColor}, 0.01) 65%,
-        transparent 70%
+        rgba(${glowColor}, 0.25) 0%,
+        rgba(${glowColor}, 0.12) 20%,
+        rgba(${glowColor}, 0.05) 40%,
+        rgba(${glowColor}, 0.02) 60%,
+        transparent 80%
       );
       z-index: 200;
       opacity: 0;
       transform: translate(-50%, -50%);
-      mix-blend-mode: screen;
+      mix-blend-mode: plus-lighter;
     `;
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
@@ -390,7 +389,7 @@ const GlobalSpotlight = ({
       if (!mouseInside) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
-          duration: 0.3,
+          duration: 0.5,
           ease: 'power2.out'
         });
         cards.forEach(card => {
@@ -426,20 +425,20 @@ const GlobalSpotlight = ({
       gsap.to(spotlightRef.current, {
         left: e.clientX,
         top: e.clientY,
-        duration: 0.1,
+        duration: 0.15,
         ease: 'power2.out'
       });
 
       const targetOpacity =
         minDistance <= proximity
-          ? 0.8
+          ? 1
           : minDistance <= fadeDistance
-            ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 0.8
+            ? ((fadeDistance - minDistance) / (fadeDistance - proximity)) * 1
             : 0;
 
       gsap.to(spotlightRef.current, {
         opacity: targetOpacity,
-        duration: targetOpacity > 0 ? 0.2 : 0.5,
+        duration: 0.4,
         ease: 'power2.out'
       });
     };
@@ -452,7 +451,7 @@ const GlobalSpotlight = ({
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
-          duration: 0.3,
+          duration: 0.5,
           ease: 'power2.out'
         });
       }
@@ -514,7 +513,7 @@ const MagicBento = ({
   disableAnimations = false,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
   particleCount = DEFAULT_PARTICLE_COUNT,
-  enableTilt = false,
+  enableTilt = true,
   glowColor = DEFAULT_GLOW_COLOR,
   clickEffect = true,
   enableMagnetism = true

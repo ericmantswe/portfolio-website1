@@ -5,16 +5,16 @@
   --glow-primary: rgba(34, 197, 94, 1);
   --glow-soft: rgba(34, 197, 94, 0.2);
   --glow-border: rgba(34, 197, 94, 0.8);
-  --border-color: #1a2e1f;
-  --background-dark: #0a0f0b;
+  --border-color: rgba(34, 197, 94, 0.1);
+  --background-dark: #050806;
   color-scheme: light dark;
 }
 
 .card-grid {
   display: grid;
-  gap: 0.5em;
-  padding: 0.75em;
-  max-width: 54em;
+  gap: 1em;
+  padding: 1em;
+  max-width: 64em;
   margin: 0 auto;
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
 }
@@ -25,16 +25,16 @@
   justify-content: space-between;
   position: relative;
   aspect-ratio: 4/3;
-  min-height: 200px;
+  min-height: 220px;
   width: 100%;
   max-width: 100%;
-  padding: 1.25em;
-  border-radius: 20px;
+  padding: 1.5em;
+  border-radius: 24px;
   border: 1px solid var(--border-color);
   background: var(--background-dark);
   font-weight: 300;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   --glow-x: 50%;
   --glow-y: 50%;
@@ -43,8 +43,8 @@
 }
 
 .magic-bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(34, 197, 94, 0.3);
 }
 
 .magic-bento-card__header,
@@ -52,6 +52,7 @@
   display: flex;
   position: relative;
   color: var(--white);
+  z-index: 10;
 }
 
 .magic-bento-card__header {
@@ -64,28 +65,25 @@
 }
 
 .magic-bento-card__label {
-  font-size: 14px;
-  opacity: 0.7;
+  font-size: 11px;
+  opacity: 0.5;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.magic-bento-card__title,
-.magic-bento-card__description {
-  --clamp-title: 1;
-  --clamp-desc: 2;
+  letter-spacing: 0.2em;
+  font-weight: 700;
 }
 
 .magic-bento-card__title {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.5rem;
   margin: 0 0 0.25em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .magic-bento-card__description {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  opacity: 0.8;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.6;
 }
 
 .magic-bento-card--text-autohide .magic-bento-card__title,
@@ -97,27 +95,24 @@
 }
 
 .magic-bento-card--text-autohide .magic-bento-card__title {
-  -webkit-line-clamp: var(--clamp-title);
-  line-clamp: var(--clamp-title);
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .magic-bento-card--text-autohide .magic-bento-card__description {
-  -webkit-line-clamp: var(--clamp-desc);
-  line-clamp: var(--clamp-desc);
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 @media (max-width: 599px) {
   .card-grid {
     grid-template-columns: 1fr;
-    width: 95%;
-    margin: 0 auto;
-    padding: 0.5em;
+    width: 100%;
+    padding: 0.75em;
   }
 
   .magic-bento-card {
-    width: 100%;
-    min-height: 160px;
-    aspect-ratio: auto;
+    min-height: 180px;
   }
 }
 
@@ -141,24 +136,18 @@
     grid-column: 1 / span 2;
     grid-row: 2 / span 2;
   }
-
-  .magic-bento-card:nth-child(6) {
-    grid-column: 4;
-    grid-row: 3;
-  }
 }
 
-/* Border glow effect */
 .magic-bento-card--border-glow::after {
   content: '';
   position: absolute;
   inset: 0;
-  padding: 2px;
+  padding: 1.5px;
   background: radial-gradient(
     var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.8)) 0%,
-    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.4)) 30%,
-    transparent 60%
+    rgba(var(--glow-color), calc(var(--glow-intensity) * 1)) 0%,
+    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.4)) 40%,
+    transparent 70%
   );
   border-radius: inherit;
   -webkit-mask:
@@ -175,14 +164,10 @@
   z-index: 1;
 }
 
-.magic-bento-card--border-glow:hover::after {
-  opacity: 1;
-}
-
 .magic-bento-card--border-glow:hover {
-  box-shadow:
-    0 4px 20px rgba(20, 46, 30, 0.4),
-    0 0 30px var(--glow-soft);
+  box-shadow: 
+    0 0 40px rgba(var(--glow-color), 0.1),
+    inset 0 0 20px rgba(var(--glow-color), 0.05);
 }
 
 .particle-container {
@@ -190,27 +175,8 @@
   overflow: hidden;
 }
 
-.particle::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: rgba(34, 197, 94, 0.2);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.particle-container:hover {
-  box-shadow:
-    0 4px 20px rgba(20, 46, 30, 0.2),
-    0 0 30px var(--glow-soft);
-}
-
-/* Global spotlight styles */
 .global-spotlight {
-  mix-blend-mode: screen;
+  mix-blend-mode: plus-lighter;
   will-change: transform, opacity;
   z-index: 200 !important;
   pointer-events: none;
