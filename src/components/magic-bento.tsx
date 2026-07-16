@@ -332,7 +332,7 @@ const ParticleCard = ({
 };
 
 interface GlobalSpotlightProps {
-  gridRef: React.RefObject<HTMLDivElement | null>;
+  gridRef: React.RefObject<HTMLDivElement>;
   disableAnimations?: boolean;
   enabled?: boolean;
   spotlightRadius?: number;
@@ -470,7 +470,7 @@ const GlobalSpotlight = ({
   return null;
 };
 
-const BentoCardGrid = ({ children, gridRef }: { children: ReactNode; gridRef: React.RefObject<HTMLDivElement | null> }) => (
+const BentoCardGrid = ({ children, gridRef }: { children: ReactNode; gridRef: React.RefObject<HTMLDivElement> }) => (
   <div className="card-grid bento-section" ref={gridRef}>
     {children}
   </div>
@@ -526,7 +526,7 @@ const MagicBento = ({
     <>
       {enableSpotlight && (
         <GlobalSpotlight
-          gridRef={gridRef}
+          gridRef={gridRef as React.RefObject<HTMLDivElement>}
           disableAnimations={shouldDisableAnimations}
           enabled={enableSpotlight}
           spotlightRadius={spotlightRadius}
@@ -534,7 +534,7 @@ const MagicBento = ({
         />
       )}
 
-      <BentoCardGrid gridRef={gridRef}>
+      <BentoCardGrid gridRef={gridRef as React.RefObject<HTMLDivElement>}>
         {cardData.map((card, index) => {
           const baseClassName = `magic-bento-card ${textAutoHide ? 'magic-bento-card--text-autohide' : ''} ${enableBorderGlow ? 'magic-bento-card--border-glow' : ''}`;
           const cardProps = {
