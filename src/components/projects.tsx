@@ -35,7 +35,7 @@ const Projects = () => {
             {duplicatedProjects.map((project, index) => (
               <div 
                 key={`${project.id}-${index}`} 
-                className="w-[350px] md:w-[450px] flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/5 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-white/10 group"
+                className="w-[350px] md:w-[450px] flex-shrink-0 rounded-[2rem] overflow-hidden border border-border bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 group"
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image 
@@ -57,8 +57,8 @@ const Projects = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-2">{project.title}</h3>
-                    <p className="text-sm text-white/60 line-clamp-2 leading-relaxed">
+                    <h3 className="text-xl font-black uppercase tracking-tight text-foreground mb-2">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -69,7 +69,7 @@ const Projects = () => {
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors"
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:text-foreground transition-colors"
                       >
                         <ExternalLink className="w-3 h-3" /> Live Demo
                       </a>
@@ -78,7 +78,7 @@ const Projects = () => {
                       href={project.repoUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Github className="w-3 h-3" /> Source Code
                     </a>
