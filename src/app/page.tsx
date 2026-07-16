@@ -1,4 +1,3 @@
-
 import Header from '@/components/header';
 import Hero from '@/components/hero';
 import About from '@/components/about';
@@ -13,6 +12,7 @@ import MagicBento from '@/components/magic-bento';
 import SectionWrapper from '@/components/section-wrapper';
 import SectionTitle from '@/components/section-title';
 import { Sparkles } from 'lucide-react';
+import { ScrollVelocityContainer, ScrollVelocityRow } from '@/components/ui/scroll-velocity';
 
 export default function Home() {
   return (
@@ -21,6 +21,15 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         
+        <ScrollVelocityContainer>
+          <ScrollVelocityRow baseVelocity={5} direction={1} className="text-primary/20">
+            Mechatronics • Web Development • Innovation •
+          </ScrollVelocityRow>
+          <ScrollVelocityRow baseVelocity={5} direction={-1} className="text-primary">
+            Engineering • Robotics • Automation • Strategy •
+          </ScrollVelocityRow>
+        </ScrollVelocityContainer>
+
         <MotionWrapper>
           <SectionWrapper id="capabilities" className="bg-background">
             <SectionTitle icon={Sparkles}>Core Capabilities</SectionTitle>

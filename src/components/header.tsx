@@ -21,7 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -30,22 +30,22 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 z-50 w-full transition-all duration-500 py-4',
+        'fixed top-0 z-50 w-full transition-all duration-500 py-3 md:py-4',
         isScrolled 
-          ? 'bg-background/80 backdrop-blur-xl border-b border-white/5 py-3' 
+          ? 'bg-background/80 backdrop-blur-xl border-b border-white/5 py-2 md:py-3' 
           : 'bg-transparent'
       )}
     >
       <div className="container flex items-center justify-between">
         <Link href="/" className="group flex flex-col">
           <span className={cn(
-            "font-black text-lg tracking-tighter uppercase transition-colors",
+            "font-black text-base md:text-lg tracking-tighter uppercase transition-colors",
             isScrolled ? "text-foreground" : "text-white"
           )}>
             {PROFILE_DATA.name.split(' ')[0]}
           </span>
           <span className={cn(
-            "text-[10px] uppercase tracking-widest transition-colors",
+            "text-[8px] md:text-[10px] uppercase tracking-widest transition-colors",
             isScrolled ? "text-muted-foreground" : "text-white/40"
           )}>
             Portfolio
@@ -73,23 +73,23 @@ const Header = () => {
           </div>
         </nav>
         
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={isScrolled ? "text-foreground" : "text-white"}>
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className={cn("h-8 w-8", isScrolled ? "text-foreground" : "text-white")}>
+                  <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full bg-background border-l-0">
-                <SheetHeader>
-                  <SheetTitle className="text-left text-2xl font-black uppercase tracking-tighter">Menu</SheetTitle>
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Navigation Menu</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col items-start justify-center h-full gap-8 py-12">
-                  <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Home</a>
-                  <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">About</a>
-                  <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Portfolio</a>
-                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors text-primary">Contact</a>
+                <div className="flex flex-col items-start justify-center h-full gap-6 py-10">
+                  <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Home</a>
+                  <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">About</a>
+                  <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Portfolio</a>
+                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors text-primary">Contact</a>
                 </div>
               </SheetContent>
             </Sheet>
