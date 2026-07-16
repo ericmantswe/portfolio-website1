@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useRef, useEffect, useCallback, useState, ReactNode } from 'react';
@@ -7,42 +6,42 @@ import './magic-bento.css';
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '132, 0, 255';
+const DEFAULT_GLOW_COLOR = '34, 197, 94';
 const MOBILE_BREAKPOINT = 768;
 
 const cardData = [
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Mechatronics',
     description: 'Robotics and industrial systems',
     label: 'Engineering'
   },
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Web Dev',
     description: 'React, Next.js, and TypeScript',
     label: 'Software'
   },
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Automation',
     description: 'Industrial instrumentation solutions',
     label: 'Control'
   },
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Entrepreneurship',
     description: 'Building tech for community needs',
     label: 'Strategy'
   },
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Design',
     description: 'SolidWorks, Fusion 360, and Blender',
     label: 'Creative'
   },
   {
-    color: '#120F17',
+    color: '#0a0f0b',
     title: 'Innovation',
     description: 'Problem-solving for future tech',
     label: 'Mindset'

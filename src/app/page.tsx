@@ -22,10 +22,10 @@ export default function Home() {
         <Hero />
         
         <ScrollVelocityContainer>
-          <ScrollVelocityRow baseVelocity={1.5} direction={1} className="text-primary/20">
+          <ScrollVelocityRow baseVelocity={0.5} direction={1} className="text-primary/20">
             Mechatronics • Web Development • Innovation •
           </ScrollVelocityRow>
-          <ScrollVelocityRow baseVelocity={1.5} direction={-1} className="text-primary">
+          <ScrollVelocityRow baseVelocity={0.5} direction={-1} className="text-primary">
             Engineering • Robotics • Automation • Strategy •
           </ScrollVelocityRow>
         </ScrollVelocityContainer>
@@ -43,7 +43,7 @@ export default function Home() {
               clickEffect={true}
               spotlightRadius={300}
               particleCount={12}
-              glowColor="132, 0, 255"
+              glowColor="34, 197, 94"
             />
           </SectionWrapper>
         </MotionWrapper>
