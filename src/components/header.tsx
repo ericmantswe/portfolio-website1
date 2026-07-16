@@ -69,12 +69,18 @@ const Header = () => {
             )}>
               <a href="#contact">Hire Me</a>
             </Button>
-            <AnimatedThemeToggler className={cn(isScrolled ? "text-foreground" : "text-white")} />
+            <AnimatedThemeToggler 
+              variant="diamond"
+              className={cn(isScrolled ? "text-foreground" : "text-white")} 
+            />
           </div>
         </nav>
         
         <div className="md:hidden flex items-center gap-3">
-            <AnimatedThemeToggler className={cn(isScrolled ? "text-foreground" : "text-white")} />
+            <AnimatedThemeToggler 
+              variant="diamond"
+              className={cn(isScrolled ? "text-foreground" : "text-white")} 
+            />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className={cn("h-8 w-8", isScrolled ? "text-foreground" : "text-white")}>
