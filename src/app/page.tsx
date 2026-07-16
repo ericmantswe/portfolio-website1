@@ -22,10 +22,10 @@ export default function Home() {
         <Hero />
         
         <ScrollVelocityContainer>
-          <ScrollVelocityRow baseVelocity={5} direction={1} className="text-primary/20">
+          <ScrollVelocityRow baseVelocity={1.5} direction={1} className="text-primary/20">
             Mechatronics • Web Development • Innovation •
           </ScrollVelocityRow>
-          <ScrollVelocityRow baseVelocity={5} direction={-1} className="text-primary">
+          <ScrollVelocityRow baseVelocity={1.5} direction={-1} className="text-primary">
             Engineering • Robotics • Automation • Strategy •
           </ScrollVelocityRow>
         </ScrollVelocityContainer>

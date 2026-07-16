@@ -33,7 +33,9 @@ export const ScrollVelocityRow = ({
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  
+  // Reduced the multiplier from 5 to 2 to make it less sensitive to scrolling
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 2], {
     clamp: false,
   });
 
