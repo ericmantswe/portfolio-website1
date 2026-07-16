@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
 interface ProgressiveBlurProps {
@@ -17,6 +18,18 @@ export function ProgressiveBlur({
   className,
   intensity = 8,
 }: ProgressiveBlurProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Return null or a placeholder during SSR to prevent hydration mismatches
+  // because the browser normalizes CSS gradient strings differently than the server.
+  if (!mounted) {
+    return null;
+  }
+
   const isVertical = position === "top" || position === "bottom"
   
   return (
