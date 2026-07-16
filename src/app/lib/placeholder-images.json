@@ -1,0 +1,35 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "A full-featured e-commerce website with a modern design, payment integration, and an admin dashboard.",
+      "imageUrl": "https://picsum.photos/seed/1/600/400",
+      "imageHint": "online store"
+    },
+    {
+      "id": "project-2",
+      "description": "A collaborative task management tool with real-time updates, drag-and-drop functionality, and user authentication.",
+      "imageUrl": "https://picsum.photos/seed/2/600/400",
+      "imageHint": "to-do list"
+    },
+    {
+      "id": "project-3",
+      "description": "A personal portfolio website to showcase my skills and projects, built with performance and aesthetics in mind.",
+      "imageUrl": "https://picsum.photos/seed/3/600/400",
+      "imageHint": "personal website"
+    },
+    {
+      "id": "footer-branding",
+      "description": "A professional minimalist branding element for the footer.",
+      "imageUrl": "https://picsum.photos/seed/footer-brand/300/100",
+      "imageHint": "minimalist logo"
+    },
+    {
+      "id": "footer-background",
+      "description": "A subtle textured background image for the footer section.",
+      "imageUrl": "https://picsum.photos/seed/footer-bg/1200/400",
+      "imageHint": "industrial texture"
+    }
+  ]
+}
