@@ -3,49 +3,108 @@
 import { PROJECTS, SECTION_MAP } from '@/lib/data';
 import SectionWrapper from './section-wrapper';
 import SectionTitle from './section-title';
-import CarouselPortfolio, { type CarouselPortfolioItem } from '@/components/ui/carousel-portfolio';
-import { Circle, Code, FileText, Layers, Layout } from 'lucide-react';
+import SpotlightCard from '@/components/ui/spotlight-card';
+import { Badge } from '@/components/ui/badge';
+import { ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
-
-const iconMap = [FileText, Layers, Layout, Circle, Code];
 
 const Projects = () => {
   const { id, icon, title } = SECTION_MAP.projects;
   
-  const carouselItems: CarouselPortfolioItem[] = PROJECTS.map((project, index) => ({
-    id: project.id,
-    title: project.title,
-    description: project.description,
-    imageUrl: project.imageUrl,
-    imageHint: project.imageHint,
-    icon: iconMap[index % iconMap.length],
-  }));
+  // Duplicate projects for seamless infinite scroll
+  const duplicatedProjects = [...PROJECTS, ...PROJECTS];
 
   return (
-    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center min-h-[800px]">
+    <SectionWrapper id={id} className="relative overflow-hidden flex flex-col items-center bg-background/50">
       <SectionTitle icon={icon}>{title}</SectionTitle>
       
-      <div className="mt-12 mb-12 flex justify-center items-center w-full min-h-[500px] relative px-4">
-        {/* Abstract background decoration */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square bg-primary/5 rounded-full blur-[100px] -z-10" />
+      <div className="mt-12 w-full relative">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] aspect-square bg-primary/5 rounded-full blur-[120px] -z-10" />
         
-        <CarouselPortfolio 
-          items={carouselItems} 
-          baseWidth={400} 
-          autoplay={true} 
-          autoplayDelay={5000}
-          loop={true}
-        />
+        {/* Infinite Scroll Container */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <motion.div 
+            className="flex gap-6 py-4"
+            animate={{
+              x: ["0%", "-50%"]
+            }}
+            transition={{
+              duration: 40,
+              ease: "linear",
+              repeat: Infinity
+            }}
+          >
+            {duplicatedProjects.map((project, index) => (
+              <SpotlightCard 
+                key={`${project.id}-${index}`} 
+                className="w-[350px] md:w-[450px] flex-shrink-0 !p-0 border-white/5 bg-card/40 backdrop-blur-sm"
+                spotlightColor="rgba(132, 0, 255, 0.15)"
+              >
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <Image 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                    data-ai-hint={project.imageHint}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                </div>
+                
+                <div className="p-6 space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <Badge key={tag} variant="secondary" className="text-[10px] uppercase tracking-wider bg-primary/10 text-primary border-none">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-2">{project.title}</h3>
+                    <p className="text-sm text-white/60 line-clamp-2 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 pt-2">
+                    {project.liveUrl && project.liveUrl !== '#' && (
+                      <a 
+                        href={project.liveUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:text-white transition-colors"
+                      >
+                        <ExternalLink className="w-3 h-3" /> Live Demo
+                      </a>
+                    )}
+                    <a 
+                      href={project.repoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                    >
+                      <Github className="w-3 h-3" /> Source Code
+                    </a>
+                  </div>
+                </div>
+              </SpotlightCard>
+            ))}
+          </motion.div>
+        </div>
       </div>
       
-      <div className="mt-8 text-center relative z-20">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground animate-pulse">
-          Drag or swipe to explore • Swipe for details
+      <div className="mt-12 text-center relative z-20">
+        <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground/50">
+          Innovative Engineering • Precision Development
         </p>
       </div>
 
-      <ProgressiveBlur position="bottom" height="100px" intensity={6} />
-      <ProgressiveBlur position="top" height="100px" intensity={6} />
+      <ProgressiveBlur position="bottom" height="150px" intensity={8} />
+      <ProgressiveBlur position="top" height="150px" intensity={8} />
     </SectionWrapper>
   );
 };
