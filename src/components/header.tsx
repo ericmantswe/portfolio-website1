@@ -37,6 +37,7 @@ const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between">
+        {/* Logo / Name */}
         <Link href="/" className="group flex flex-col">
           <span className={cn(
             "font-black text-base md:text-lg tracking-tighter uppercase transition-colors",
@@ -52,6 +53,7 @@ const Header = () => {
           </span>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <div className={cn(
             "flex flex-col text-right text-[10px] tracking-[0.2em] font-bold uppercase",
@@ -76,29 +78,30 @@ const Header = () => {
           </div>
         </nav>
         
+        {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-3">
-            <AnimatedThemeToggler 
-              variant="diamond"
-              className={cn(isScrolled ? "text-foreground" : "text-white")} 
-            />
-            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn("h-8 w-8", isScrolled ? "text-foreground" : "text-white")}>
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full bg-background border-l-0">
-                <SheetHeader className="sr-only">
-                  <SheetTitle>Navigation Menu</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col items-start justify-center h-full gap-6 py-10">
-                  <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Home</a>
-                  <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">About</a>
-                  <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Portfolio</a>
-                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors text-primary">Contact</a>
-                </div>
-              </SheetContent>
-            </Sheet>
+          <AnimatedThemeToggler 
+            variant="diamond"
+            className={cn(isScrolled ? "text-foreground" : "text-white")} 
+          />
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className={cn("h-8 w-8", isScrolled ? "text-foreground" : "text-white")}>
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full bg-background border-l-0">
+              <SheetHeader className="sr-only">
+                <SheetTitle>Navigation Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col items-start justify-center h-full gap-6 py-10">
+                <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Home</a>
+                <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">About</a>
+                <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Portfolio</a>
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-black uppercase tracking-tighter hover:text-primary transition-colors text-primary">Contact</a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

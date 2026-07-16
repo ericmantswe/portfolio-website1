@@ -12,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Eric Obakeng Mantswe | Portfolio',
-  description: 'Professional portfolio for Eric Obakeng Mantswe, Mechatronics Undergraduate and Web Developer.',
+  title: 'Profolio',
+  description: 'Professional portfolio for Jensen Omega',
 };
 
 export default function RootLayout({

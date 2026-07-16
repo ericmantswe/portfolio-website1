@@ -23,6 +23,7 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 px-4 flex flex-col items-center">
+        {/* Title / Subtitle */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,6 +35,7 @@ const Hero = () => {
           </span>
         </motion.div>
 
+        {/* Core Animated Typography */}
         <div className="flex flex-col items-center select-none text-center w-full max-w-5xl mx-auto">
           <KineticText
             text="FRONT-END"
@@ -57,6 +59,7 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* Bio / About */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,6 +71,7 @@ const Hero = () => {
           </p>
         </motion.div>
 
+        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
