@@ -21,7 +21,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -30,50 +30,66 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        'fixed top-0 z-50 w-full transition-all duration-500 py-4',
+        isScrolled 
+          ? 'bg-background/80 backdrop-blur-xl border-b border-white/5 py-3' 
+          : 'bg-transparent'
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex flex-col text-sm uppercase tracking-wider">
-          <span className="font-bold text-base">{PROFILE_DATA.name}</span>
-          <span className="text-foreground/60 text-xs">{PROFILE_DATA.title}</span>
+      <div className="container flex items-center justify-between">
+        <Link href="/" className="group flex flex-col">
+          <span className={cn(
+            "font-black text-lg tracking-tighter uppercase transition-colors",
+            isScrolled ? "text-foreground" : "text-white"
+          )}>
+            {PROFILE_DATA.name.split(' ')[0]}
+          </span>
+          <span className={cn(
+            "text-[10px] uppercase tracking-widest transition-colors",
+            isScrolled ? "text-muted-foreground" : "text-white/40"
+          )}>
+            Portfolio
+          </span>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-4 text-sm uppercase tracking-widest">
-            <div className="flex flex-col text-right">
-                <span>AVAILABLE FOR FREELANCE</span>
-                <span className="text-foreground/60">WORK & PROJECTS</span>
-            </div>
-            <Button asChild variant="default" className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse-gradient">
-              <a href="#contact">Contact</a>
+        <nav className="hidden md:flex items-center gap-8">
+          <div className={cn(
+            "flex flex-col text-right text-[10px] tracking-[0.2em] font-bold uppercase",
+            isScrolled ? "text-muted-foreground" : "text-white/40"
+          )}>
+            <span>Available for</span>
+            <span className={isScrolled ? "text-foreground" : "text-white"}>Freelance</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <Button asChild variant="outline" className={cn(
+              "rounded-full px-6 transition-all",
+              isScrolled 
+                ? "border-foreground hover:bg-foreground hover:text-background" 
+                : "border-white/20 text-white hover:bg-white hover:text-black bg-transparent"
+            )}>
+              <a href="#contact">Hire Me</a>
             </Button>
             <ThemeToggle />
-        </div>
+          </div>
+        </nav>
         
-        {/* Mobile Menu */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Open menu</span>
+                <Button variant="ghost" size="icon" className={isScrolled ? "text-foreground" : "text-white"}>
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full max-w-xs bg-background/95 backdrop-blur-sm">
+              <SheetContent side="right" className="w-full bg-background border-l-0">
                 <SheetHeader>
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                  <SheetTitle className="text-left text-2xl font-black uppercase tracking-tighter">Menu</SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col items-center justify-center h-full text-center space-y-8">
-                  <div className="text-sm uppercase tracking-widest">
-                      <p>AVAILABLE FOR FREELANCE</p>
-                      <p className="text-foreground/60">WORK & PROJECTS</p>
-                  </div>
-                  <Button asChild variant="default" size="lg" className="rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white animate-pulse-gradient" onClick={() => setIsMobileMenuOpen(false)}>
-                    <a href="#contact">Contact Me</a>
-                  </Button>
+                <div className="flex flex-col items-start justify-center h-full gap-8 py-12">
+                  <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Home</a>
+                  <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">About</a>
+                  <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors">Portfolio</a>
+                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-4xl font-black uppercase tracking-tighter hover:text-primary transition-colors text-primary">Contact</a>
                 </div>
               </SheetContent>
             </Sheet>
