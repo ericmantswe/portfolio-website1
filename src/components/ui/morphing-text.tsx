@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useCallback, useEffect, useRef } from "react";
@@ -12,52 +13,60 @@ export const MorphingText = ({ texts, className }: MorphingTextProps) => {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);
 
-  const morphTime = 1;
-  const cooldownTime = 2;
+  const morphTime = 1.5;
+  const cooldownTime = 1.5;
 
-  let textIndex = texts.length - 1;
-  let time = new Date();
-  let morph = 0;
-  let cooldown = cooldownTime;
+  const state = useRef({
+    textIndex: texts.length - 1,
+    time: new Date(),
+    morph: 0,
+    cooldown: cooldownTime,
+  });
 
   const setMorph = useCallback((fraction: number) => {
     if (!text1Ref.current || !text2Ref.current) return;
 
-    text2Ref.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-    text2Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+    // Text 2 (incoming)
+    const blur2 = Math.min(8 / fraction - 8, 100);
+    const opacity2 = Math.pow(fraction, 0.4);
+    text2Ref.current.style.filter = `blur(${blur2}px)`;
+    text2Ref.current.style.opacity = `${opacity2}`;
 
-    fraction = 1 - fraction;
-    text1Ref.current.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-    text1Ref.current.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+    // Text 1 (outgoing)
+    const f1 = 1 - fraction;
+    const blur1 = Math.min(8 / f1 - 8, 100);
+    const opacity1 = Math.pow(f1, 0.4);
+    text1Ref.current.style.filter = `blur(${blur1}px)`;
+    text1Ref.current.style.opacity = `${opacity1}`;
 
-    text1Ref.current.textContent = texts[textIndex % texts.length];
-    text2Ref.current.textContent = texts[(textIndex + 1) % texts.length];
-  }, [texts, textIndex]);
+    text1Ref.current.textContent = texts[state.current.textIndex % texts.length];
+    text2Ref.current.textContent = texts[(state.current.textIndex + 1) % texts.length];
+  }, [texts]);
 
   const doCooldown = useCallback(() => {
-    morph = 0;
+    state.current.morph = 0;
     if (!text1Ref.current || !text2Ref.current) return;
 
     text2Ref.current.style.filter = "";
-    text2Ref.current.style.opacity = "100%";
+    text2Ref.current.style.opacity = "1";
 
     text1Ref.current.style.filter = "";
-    text1Ref.current.style.opacity = "0%";
+    text1Ref.current.style.opacity = "0";
   }, []);
 
   const doMorph = useCallback(() => {
-    morph -= cooldown;
-    cooldown = 0;
+    state.current.morph -= state.current.cooldown;
+    state.current.cooldown = 0;
 
-    let fraction = morph / morphTime;
+    let fraction = state.current.morph / morphTime;
 
     if (fraction > 1) {
-      cooldown = cooldownTime;
+      state.current.cooldown = cooldownTime;
       fraction = 1;
     }
 
     setMorph(fraction);
-  }, [cooldown, setMorph]);
+  }, [setMorph, cooldownTime, morphTime]);
 
   useEffect(() => {
     let animationFrameId: number;
@@ -65,16 +74,16 @@ export const MorphingText = ({ texts, className }: MorphingTextProps) => {
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
-      let newTime = new Date();
-      let shouldIncrementIndex = cooldown > 0;
-      let dt = (newTime.getTime() - time.getTime()) / 1000;
-      time = newTime;
+      const newTime = new Date();
+      const shouldIncrementIndex = state.current.cooldown > 0;
+      const dt = (newTime.getTime() - state.current.time.getTime()) / 1000;
+      state.current.time = newTime;
 
-      cooldown -= dt;
+      state.current.cooldown -= dt;
 
-      if (cooldown <= 0) {
+      if (state.current.cooldown <= 0) {
         if (shouldIncrementIndex) {
-          textIndex++;
+          state.current.textIndex++;
         }
         doMorph();
       } else {
@@ -87,7 +96,7 @@ export const MorphingText = ({ texts, className }: MorphingTextProps) => {
   }, [doMorph, doCooldown]);
 
   return (
-    <div className={cn("relative inline-block w-full h-[1.2em]", className)}>
+    <div className={cn("relative inline-block w-full h-[1.1em] overflow-visible", className)}>
       <svg id="filters" className="hidden">
         <defs>
           <filter id="threshold">

@@ -16,7 +16,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden hero-gradient text-white pt-16 pb-8">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden hero-gradient text-white pt-20 pb-12">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vw] bg-primary/5 rounded-full blur-[120px]" />
@@ -27,9 +27,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-4"
+          className="mb-6"
         >
-          <span className="text-[9px] md:text-xs uppercase tracking-[0.4em] font-bold text-primary/80">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] font-bold text-primary/80">
             {PROFILE_DATA.title}
           </span>
         </motion.div>
@@ -37,12 +37,12 @@ const Hero = () => {
         <div className="flex flex-col items-center select-none text-center w-full max-w-5xl mx-auto">
           <KineticText
             text="FRONT-END"
-            className="text-[12vw] md:text-[10vw] lg:text-[7.5rem] font-[900] leading-[0.9] tracking-[-0.05em] uppercase text-white"
+            className="text-[12vw] md:text-[10vw] lg:text-[7.5rem] font-[900] leading-[0.8] tracking-[-0.05em] uppercase text-white mb-4"
           />
           
-          <div className="relative w-full flex flex-col items-center justify-center mt-2 md:mt-4">
+          <div className="relative w-full flex flex-col items-center justify-center min-h-[1.2em]">
             <motion.span 
-              className="absolute text-[15vw] md:text-[12vw] lg:text-[10rem] font-black text-primary/5 italic z-0 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              className="absolute text-[20vw] md:text-[15vw] lg:text-[12rem] font-black text-primary/5 italic z-0 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -52,7 +52,7 @@ const Hero = () => {
             
             <MorphingText
               texts={morphingTexts}
-              className="text-[12vw] md:text-[10vw] lg:text-[7.5rem] font-[900] leading-[0.9] tracking-[-0.05em] uppercase text-white z-10"
+              className="text-[12vw] md:text-[10vw] lg:text-[7.5rem] font-[900] leading-[1] tracking-[-0.05em] uppercase text-white z-10"
             />
           </div>
         </div>
@@ -61,9 +61,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-8 md:mt-12 max-w-2xl text-center"
+          className="mt-12 md:mt-16 max-w-2xl text-center"
         >
-          <p className="text-[10px] md:text-sm lg:text-base text-white/60 leading-relaxed font-medium px-4 max-w-lg mx-auto">
+          <p className="text-xs md:text-sm lg:text-base text-white/60 leading-relaxed font-medium px-4 max-w-lg mx-auto">
             {PROFILE_DATA.about}
           </p>
         </motion.div>
@@ -72,17 +72,17 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="mt-12 md:mt-16 flex flex-col items-center gap-4"
+          className="mt-16 md:mt-24 flex flex-col items-center gap-4"
         >
           <a 
             href="#capabilities" 
-            className="group flex flex-col items-center gap-2 text-[8px] uppercase tracking-[0.4em] text-white/30 hover:text-white transition-all duration-300"
+            className="group flex flex-col items-center gap-2 text-[8px] md:text-[10px] uppercase tracking-[0.4em] text-white/30 hover:text-white transition-all duration-300"
           >
             Explore Portfolio
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-px h-10 md:h-12 bg-gradient-to-b from-primary to-transparent"
+              className="w-px h-12 md:h-16 bg-gradient-to-b from-primary to-transparent"
             />
           </a>
         </motion.div>
