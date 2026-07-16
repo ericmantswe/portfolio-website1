@@ -29,7 +29,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] font-bold text-primary/80">
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] font-bold text-white/40">
             {PROFILE_DATA.title}
           </span>
         </motion.div>
@@ -42,7 +42,7 @@ const Hero = () => {
           
           <div className="relative w-full flex flex-col items-center justify-center min-h-[1.5em] md:min-h-[1.2em]">
             <motion.span 
-              className="absolute text-[20vw] md:text-[15vw] lg:text-[12rem] font-black text-primary/5 italic z-0 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] pointer-events-none"
+              className="absolute text-[20vw] md:text-[15vw] lg:text-[12rem] font-black text-white/5 italic z-0 select-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
