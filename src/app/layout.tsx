@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
+import { ScrollProgress } from '@/components/ui/scroll-progress';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Eric Obakeng Mantswe | Portfolio',
-  description: 'Professional portfolio for Eric Obakeng Mantswe',
+  description: 'Professional portfolio for Eric Obakeng Mantswe, Mechatronics Undergraduate and Web Developer.',
 };
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress className="top-0" />
           {children}
         </ThemeProvider>
         <Toaster />
