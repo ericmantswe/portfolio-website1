@@ -3,7 +3,6 @@
 import { PROJECTS, SECTION_MAP } from '@/lib/data';
 import SectionWrapper from './section-wrapper';
 import SectionTitle from './section-title';
-import SpotlightCard from '@/components/ui/spotlight-card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
@@ -34,10 +33,9 @@ const Projects = () => {
             }}
           >
             {duplicatedProjects.map((project, index) => (
-              <SpotlightCard 
+              <div 
                 key={`${project.id}-${index}`} 
-                className="w-[350px] md:w-[450px] flex-shrink-0 !p-0 border-white/5 bg-card/40 backdrop-blur-sm"
-                spotlightColor="rgba(132, 0, 255, 0.1)"
+                className="w-[350px] md:w-[450px] flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/5 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-white/10 group"
               >
                 <div className="relative aspect-video w-full overflow-hidden">
                   <Image 
@@ -86,7 +84,7 @@ const Projects = () => {
                     </a>
                   </div>
                 </div>
-              </SpotlightCard>
+              </div>
             ))}
           </motion.div>
         </div>
