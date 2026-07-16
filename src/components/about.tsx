@@ -45,9 +45,9 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-4 space-y-6"
           >
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+            <div className="relative aspect-[4/5] w-full max-w-[420px] mx-auto lg:mx-0 overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
               <Image
                 src="https://i.postimg.cc/85K5y8BP/Eric-Profile.jpg"
                 alt={PROFILE_DATA.name}
@@ -57,16 +57,16 @@ const About = () => {
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
                 <p className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-80 mb-1">Subject 01</p>
-                <h3 className="text-xl font-black uppercase tracking-tight">{PROFILE_DATA.name}</h3>
+                <h3 className="text-lg font-black uppercase tracking-tight">{PROFILE_DATA.name}</h3>
               </div>
             </div>
-            <div className="border-l-2 border-primary/20 pl-6 italic text-sm text-muted-foreground leading-relaxed">
+            <div className="border-l-2 border-primary/20 pl-6 italic text-xs text-muted-foreground leading-relaxed max-w-[420px]">
               "Technology is the ultimate lever for community-driven innovation and industrial excellence."
             </div>
           </motion.div>
 
           {/* Right Column: Text & Features */}
-          <div className="lg:col-span-7 space-y-12">
+          <div className="lg:col-span-8 space-y-12">
             
             {/* The Main Copy */}
             <motion.div 
