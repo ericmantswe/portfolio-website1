@@ -32,6 +32,7 @@ export function AnimatedThemeToggler({ className, variant = "diamond" }: Animate
   const isDark = resolvedTheme === "dark"
 
   const toggleTheme = (event: React.MouseEvent) => {
+    const target = event.currentTarget as HTMLElement;
     const isAppearanceTransition =
       // @ts-ignore
       document.startViewTransition &&
@@ -44,6 +45,12 @@ export function AnimatedThemeToggler({ className, variant = "diamond" }: Animate
 
     const x = event.clientX;
     const y = event.clientY;
+    
+    // Capture rect synchronously before the transition starts
+    const rect = target.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
     const endRadius = Math.hypot(
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y)
@@ -55,10 +62,6 @@ export function AnimatedThemeToggler({ className, variant = "diamond" }: Animate
     });
 
     transition.ready.then(() => {
-      const rect = (event.currentTarget as HTMLElement).getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
       document.documentElement.animate(
         {
           clipPath: [
