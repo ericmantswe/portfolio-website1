@@ -21,14 +21,14 @@ const Projects = () => {
   const { id, icon, title } = SECTION_MAP.projects;
   
   return (
-    <SectionWrapper id={id} className="relative overflow-hidden min-h-[900px]">
+    <SectionWrapper id={id} className="relative overflow-hidden min-h-[900px] flex flex-col items-center">
       <SectionTitle icon={icon}>{title}</SectionTitle>
       
-      <div className="mt-24 flex justify-center items-center w-full min-h-[600px] relative">
+      <div className="mt-32 mb-12 flex justify-center items-center w-full min-h-[600px] relative">
         {/* Abstract background decoration */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -z-10" />
         
-        <div className="relative">
+        <div className="relative w-full max-w-[400px] h-[550px] flex justify-center items-center">
           <CardSwap 
             width={400} 
             height={550} 
@@ -113,7 +113,7 @@ const Projects = () => {
         </div>
       </div>
       
-      <div className="mt-12 text-center">
+      <div className="mt-24 text-center">
         <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground animate-pulse">
           Hover to pause • Wait for the swap
         </p>
