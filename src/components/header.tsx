@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PROFILE_DATA } from '@/lib/data';
-import { ThemeToggle } from './theme-toggle';
+import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import {
@@ -69,12 +69,12 @@ const Header = () => {
             )}>
               <a href="#contact">Hire Me</a>
             </Button>
-            <ThemeToggle />
+            <AnimatedThemeToggler className={cn(isScrolled ? "text-foreground" : "text-white")} />
           </div>
         </nav>
         
         <div className="md:hidden flex items-center gap-3">
-            <ThemeToggle />
+            <AnimatedThemeToggler className={cn(isScrolled ? "text-foreground" : "text-white")} />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className={cn("h-8 w-8", isScrolled ? "text-foreground" : "text-white")}>
